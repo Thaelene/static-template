@@ -38,9 +38,25 @@ In order to work on the project, we use Gulp.
 ```
 gulp
 ```
-The default port is :3000, feel free to change if necessary.
+
+## Features
+- File include
+- Sourcemaps
+- Live Reload
+- Notifications
+
+### CSS
+- SCSS
+- CssComb
+- Autoprefixer
+
+### Javascript
+- ES6 support
+- ESLint
+
+### Images
+- Images optimization
+- Generation of multiple dimensions for srcset
 
 ## Upcoming
 - [ ] Divide gulpfile into differents files
-- [ ] Add csscomb
-- [ ] Add a task to generate srcset

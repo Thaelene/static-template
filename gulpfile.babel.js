@@ -1,32 +1,30 @@
 // devDependencies
 /* eslint-disable */
-const gulp          = require('gulp'),
-
+const gulp = require("gulp"),
   // Tools
-  del               = require('del'),
-  gulp_rename       = require('gulp-rename'),
-  gulp_plumber      = require('gulp-plumber'),
-  gulp_sourcemaps   = require('gulp-sourcemaps'),
-  gulp_notify       = require('gulp-notify'),
-  gulp_browsersync  = require('browser-sync').create(),
-  gulp_fileinclude  = require('gulp-file-include'),
-  gutil         = require('gulp-util'),
-
+  del               = require("del"),
+  gulp_rename       = require("gulp-rename"),
+  gulp_plumber      = require("gulp-plumber"),
+  gulp_sourcemaps   = require("gulp-sourcemaps"),
+  gulp_notify       = require("gulp-notify"),
+  gulp_browsersync  = require("browser-sync").create(),
+  gulp_fileinclude  = require("gulp-file-include"),
+  gutil             = require("gulp-util"),
   // CSS
-  gulp_sass         = require('gulp-sass'),
-  gulp_autoprefixer = require('gulp-autoprefixer'),
-  gulp_cssnano      = require('gulp-cssnano'),
-
+  gulp_sass         = require("gulp-sass"),
+  gulp_autoprefixer = require("gulp-autoprefixer"),
+  gulp_cssnano      = require("gulp-cssnano"),
+  gulp_csscomb         = require("gulp-csscomb"),
   //JS
-  browserify        = require('browserify'),
-  babelify          = require('babelify'),
-  buffer            = require('vinyl-buffer'),
-  source            = require('vinyl-source-stream'),
-  es2015            = require('babel-preset-env'),
-  gulp_uglify       = require('gulp-uglify'),
-
+  browserify        = require("browserify"),
+  babelify          = require("babelify"),
+  buffer            = require("vinyl-buffer"),
+  source            = require("vinyl-source-stream"),
+  es2015            = require("babel-preset-env"),
+  gulp_uglify       = require("gulp-uglify"),
   // Images
-  gulp_imagemin     = require('gulp-imagemin');
+  gulp_imagemin     = require("gulp-imagemin"),
+  gulp_responsive   = require("gulp-responsive-images");
 
 /* eslint-enable */
 
@@ -84,6 +82,7 @@ function styles() {
     .pipe(!config.isProd ? gulp_sourcemaps.init() : gutil.noop())
     .pipe(gulp_sass().on('error', gulp_sass.logError))
     .pipe(gulp_autoprefixer({ browsers: ['last 2 versions'] }))
+    .pipe(gulp_csscomb())
     .pipe(gulp_cssnano())
     .pipe(!config.isProd ? gulp_sourcemaps.write() : gutil.noop())
     .pipe(gulp_rename('main.min.css'))
@@ -141,6 +140,26 @@ function images() {
     .pipe(gulp.dest(`${config.assets}images`))
     .pipe(gulp_browsersync.stream())
     .pipe(gulp_notify('Image minified: <%= file.relative %>'));
+}
+
+// Generate multiple dimensions for images (performance purposes)
+function resizeImages() {
+  return gulp
+    .src(`${config.src}images/**`)
+    .pipe(gulp_responsive({ 
+      "*": [
+        { width: 350, rename: { suffix: "@350w" } },
+        { width: 560, rename: { suffix: "@560w" } }, 
+        { width: 720, rename: { suffix: "@720w" } }, 
+        { width: 1280, rename: { suffix: "@1280w" } }, 
+        { width: 1920, rename: { suffix: "@1920w" } }, 
+        { rename: { suffix: "-full" } }
+      ] }, { 
+        quality: 70, 
+        progressive: true, 
+        withMetadata: false 
+      }))
+    .pipe(gulp.dest(`${config.assets}images`));
 }
 
 // Watch files on change
