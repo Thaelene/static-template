@@ -1,8 +1,8 @@
 /* eslint-disable */
-import gulp          from 'gulp';
-import gutil         from 'gulp-util';
-import gulp_imagemin from 'gulp-imagemin';
-import { images }    from '../config';
+import gulp          from 'gulp'
+import gutil         from 'gulp-util'
+import gulp_imagemin from 'gulp-imagemin'
+import { images }    from '../config'
 /* eslint-enable */
 
 const isProd = process.env.NODE_ENV === 'production';

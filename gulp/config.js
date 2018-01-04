@@ -31,12 +31,12 @@ module.exports = {
     }
   },
 
-  //   scripts: {
-  //     watchSrc: APP_SRC + "/assets/scripts/**/*.js",
-  //     src: APP_SRC + "/assets/scripts/app.js",
-  //     vendorSrc: APP_SRC + "/assets/scripts/vendors/*.js",
-  //     dest: APP_DEST + "/js/"
-  //   },
+  scripts: {
+    watchSrc: `${APP_SRC}javascript/**/*.js`,
+    src: `${APP_SRC}javascript/main.js`,
+    vendorSrc: APP_SRC + '/assets/scripts/vendors/*.js',
+    dest: `${APP_ASSETS}javascript`
+  },
 
   styles: {
     watchSrc: `${APP_SRC}styles/**/*.scss`,
