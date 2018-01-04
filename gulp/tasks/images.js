@@ -2,6 +2,7 @@
 import gulp          from 'gulp'
 import gutil         from 'gulp-util'
 import gulp_imagemin from 'gulp-imagemin'
+import gulp_responsive from 'gulp-responsive-images'
 import { images }    from '../config'
 /* eslint-enable */
 
@@ -20,6 +21,33 @@ const imagesTask = (done) => {
   done();
 };
 
-gulp.task('images', imagesTask);
+const resizeTask = (done) => {
+  gulp
+    .src(images.src)
+    .pipe(
+      gulp_responsive(
+        {
+          '*': [
+            { width: 350, rename: { suffix: '@350w' } },
+            { width: 560, rename: { suffix: '@560w' } },
+            { width: 720, rename: { suffix: '@720w' } },
+            { width: 1280, rename: { suffix: '@1280w' } },
+            { width: 1920, rename: { suffix: '@1920w' } },
+            { rename: { suffix: '-full' } }
+          ]
+        },
+        {
+          quality: 70,
+          progressive: true,
+          withMetadata: false
+        }
+      )
+    )
+    .pipe(gulp.dest(images.dest));
+  done();
+};
 
-export default imagesTask;
+gulp.task('images', gulp.parallel(imagesTask, resizeTask));
+
+export default images;
+
