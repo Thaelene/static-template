@@ -16,7 +16,7 @@ import { scripts } from '../config';
 
 const isProd = process.env.NODE_ENV === 'production';
 
-const scriptTask = () => {
+const scriptsTask = () => {
   return browserify(scripts.src, { debug: true })
     .transform(babelify, { presets: [es2015] })
     .bundle()
@@ -37,6 +37,6 @@ const scriptTask = () => {
     .pipe(gulp_notify('JS compiled'));
 }
 
-gulp.task('script', scriptTask);
+gulp.task('scripts', scriptsTask);
 
-export default scriptTask;
+export default scripts;

@@ -3,9 +3,6 @@ const APP_DEST = 'dist/';
 const APP_ASSETS = 'dist/assets/';
 
 module.exports = {
-  appSrc: APP_SRC,
-  appDest: APP_DEST,
-
   //   bsServer: {
   //     //proxy: 'your-proxy.dev'
   //     server: {
@@ -13,10 +10,15 @@ module.exports = {
   //     }
   //   },
 
-  //   fonts: {
-  //     src: APP_SRC + "/assets/fonts/*",
-  //     dest: APP_DEST + "/fonts/"
-  //   },
+  fonts: {
+    src: `${APP_SRC}fonts/**`,
+    dest: `${APP_DEST}fonts`
+  },
+
+  favicons: {
+    src: `${APP_SRC}favicons/**`,
+    dest: `${APP_DEST}favicons`
+  },
 
   images: {
     src: `${APP_SRC}images/**`,
@@ -45,11 +47,11 @@ module.exports = {
     autoprefixerOpts: {
       browsers: ['last 2 versions', 'ie >= 10']
     }
-  }
+  },
 
-  //   views: {
-  //     watchSrc: APP_SRC + "/views/**/*.*",
-  //     src: APP_SRC + "/views/**/*.*",
-  //     dest: APP_DEST
-  //   }
+  views: {
+    watchSrc: `${APP_SRC}views/**.html`,
+    src: `${APP_SRC}views/index.html`,
+    dest: `${APP_DEST}`
+  }
 };

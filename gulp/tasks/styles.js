@@ -34,4 +34,4 @@ const stylesTask = (done) => {
 
 gulp.task('styles', stylesTask);
 
-export default stylesTask;
+export default styles;
