@@ -9,6 +9,7 @@ import gulp_sourcemaps from 'gulp-sourcemaps';
 import gulp_plumber from 'gulp-plumber';
 import gulp_notify from 'gulp-notify';
 import gulp_rename from 'gulp-rename';
+import browserSync from 'browser-sync';
 import { styles } from '../config';
 /* eslint-enabled */
 
@@ -18,8 +19,8 @@ const stylesTask = (done) => {
   gulp
     .src(styles.src)
     .pipe(gulp_plumber({
-      errorHandler: gulp_notify.onError('SCSS Error: <%= error.message %>')
-    }))
+        errorHandler: gulp_notify.onError('SCSS Error: <%= error.message %>')
+      }))
     .pipe(!isProd ? gulp_sourcemaps.init() : gutil.noop())
     .pipe(gulp_sass().on('error', gulp_sass.logError))
     .pipe(gulp_autoprefixer(styles.autoprefixerOpts))
@@ -28,6 +29,7 @@ const stylesTask = (done) => {
     .pipe(!isProd ? gulp_sourcemaps.write() : gutil.noop())
     .pipe(gulp_rename('main.min.css'))
     .pipe(gulp.dest(styles.dest))
+    .pipe(browserSync.stream())
     .pipe(gulp_notify('SCSS compiled: <%= file.relative %>'));
   done();
 }

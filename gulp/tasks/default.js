@@ -5,6 +5,8 @@ import images from './images';
 import scripts from './scripts';
 import views from './views';
 import copies from './copies';
+import server from './server';
+import watch from './watch';
 /* eslint-enabled */
 
 gulp.task(
@@ -17,4 +19,9 @@ gulp.task(
       done();
     }
   )
+);
+
+gulp.task(
+  'default',
+  gulp.series('build', gulp.parallel('server', 'watch'), () => {})
 );

@@ -42,7 +42,7 @@ gulp
 ## Features
 - File include
 - Sourcemaps
-- Live Reload
+- Live Reload (working on it)
 - Notifications
 
 ### CSS
@@ -57,6 +57,3 @@ gulp
 ### Images
 - Images optimization
 - Generation of multiple dimensions for srcset
-
-## Upcoming
-- [ ] Divide gulpfile into differents files

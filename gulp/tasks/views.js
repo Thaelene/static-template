@@ -2,6 +2,7 @@
 import gulp from 'gulp';
 import gulp_notify from 'gulp-notify';
 import gulp_fileinclude from 'gulp-file-include';
+import browserSync from 'browser-sync';
 import { views } from '../config';
 /* eslint-enable */
 
@@ -15,10 +16,11 @@ const viewsTask = (done) => {
       })
     )
     .pipe(gulp.dest(views.dest))
-    .pipe(gulp_notify('HTML updated'));
+    .pipe(gulp_notify('HTML updated'))
+    .pipe(browserSync.stream());
   done();
 };
 
 gulp.task('views', viewsTask);
 
-export default viewsTask;
+export default views;

@@ -3,6 +3,7 @@ import gulp          from 'gulp'
 import gutil         from 'gulp-util'
 import gulp_imagemin from 'gulp-imagemin'
 import gulp_responsive from 'gulp-responsive-images'
+import browserSync from 'browser-sync'
 import { images }    from '../config'
 /* eslint-enable */
 
@@ -17,7 +18,8 @@ const imagesTask = (done) => {
       gulp_imagemin.optipng(images.opts.optipng),
       gulp_imagemin.svgo(images.opts.svgo)
     ]) : gutil.noop())
-    .pipe(gulp.dest(images.dest));
+    .pipe(gulp.dest(images.dest))
+    .pipe(browserSync.stream());
   done();
 };
 
@@ -43,7 +45,8 @@ const resizeTask = (done) => {
         }
       )
     )
-    .pipe(gulp.dest(images.dest));
+    .pipe(gulp.dest(images.dest))
+    .pipe(browserSync.stream());
   done();
 };
 

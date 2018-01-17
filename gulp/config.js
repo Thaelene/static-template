@@ -3,24 +3,28 @@ const APP_DEST = 'dist/';
 const APP_ASSETS = 'dist/assets/';
 
 module.exports = {
-  //   bsServer: {
-  //     //proxy: 'your-proxy.dev'
-  //     server: {
-  //       baseDir: "./build"
-  //     }
-  //   },
+  bsServer: {
+    server: {
+      baseDir: './dist'
+    },
+    port: '8080',
+    open: 'local'
+  },
 
   fonts: {
+    watchSrc: `${APP_SRC}fonts`,
     src: `${APP_SRC}fonts/**`,
     dest: `${APP_DEST}fonts`
   },
 
   favicons: {
+    watchSrc: `${APP_SRC}favicons`,
     src: `${APP_SRC}favicons/**`,
     dest: `${APP_DEST}favicons`
   },
 
   images: {
+    watchSrc: `${APP_SRC}images/**`,
     src: `${APP_SRC}images/**`,
     dest: `${APP_ASSETS}images`,
     opts: {

@@ -2,8 +2,8 @@
 import gulp from 'gulp';
 import gutil from 'gulp-util';
 import gulp_uglify from 'gulp-uglify';
+import browserSync from 'browser-sync';
 import gulp_sourcemaps from 'gulp-sourcemaps';
-import gulp_browsersync from 'browser-sync';
 import gulp_notify from 'gulp-notify';
 import browserify from 'browserify';
 import babelify from 'babelify';
@@ -33,7 +33,7 @@ const scriptsTask = () => {
     .pipe(!isProd ? gulp_sourcemaps.write() : gutil.noop())
     .pipe(gulp_rename('main.min.js'))
     .pipe(gulp.dest(scripts.dest))
-    .pipe(gulp_browsersync.stream())
+    .pipe(browserSync.stream())
     .pipe(gulp_notify('JS compiled'));
 }
 
