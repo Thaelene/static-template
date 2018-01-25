@@ -5,7 +5,7 @@ import del from 'del'
 
 // Clean dist
 const cleanTask = () => {
-  return del(['dist']);
+  return del(['dist'])
 }
 
 gulp.task('clean', cleanTask)

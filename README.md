@@ -42,7 +42,7 @@ gulp
 ## Features
 - File include
 - Sourcemaps
-- Live Reload (working on it)
+- Live Reload
 - Notifications
 
 ### CSS
@@ -57,3 +57,6 @@ gulp
 ### Images
 - Images optimization
 - Generation of multiple dimensions for srcset
+
+### TODO
+- [ ] Upgrate code accordingly to airbnb style guide

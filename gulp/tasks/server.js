@@ -1,20 +1,20 @@
 /* eslint-disable */
-import gulp from 'gulp';
-import browserSync from 'browser-sync';
-const bs = browserSync.create();
+import gulp from 'gulp'
+import browserSync from 'browser-sync'
+const server = browserSync.create()
 
-/* eslint-enabled */
+/* eslint-enable */
 
 const serverTask = (done) => {
-  bs.init({ 
+  server.init({
     server: {
-      baseDir: "./dist/"
+      baseDir: './dist/'
     },
-    port: '8080', 
-    open: 'local' 
-  });
-  done()
+    port: '8080',
+    open: 'local'
+  }, done());
 };
 
 gulp.task('server', serverTask);
 
+export default server;
