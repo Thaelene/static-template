@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+// Mandatory to rem
+html {
+  font-size: 62.5%;
+}
+
+h1 {
+  @include font($headline, 2.4, 800, 3.6);
+}

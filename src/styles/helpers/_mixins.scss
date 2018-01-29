@@ -1,0 +1,13 @@
+@mixin font( $font-family, $font-size, $font-weight, $line-height) {
+  font-weight: $font-weight;
+  font-size: ($font-size*10) + px;
+  font-size: $font-size + rem;
+  font-family: $font-family;
+  line-height: ($line-height*10) + px;
+  line-height: $line-height + rem;
+}
+
+@mixin pseudo-element( $content, $display) {
+  display: $display;
+  content: $content;
+}

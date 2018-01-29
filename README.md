@@ -44,6 +44,7 @@ gulp
 - Sourcemaps
 - Live Reload
 - Notifications
+- Mobile-first responsive
 
 ### CSS
 - SCSS
@@ -52,11 +53,8 @@ gulp
 
 ### Javascript
 - ES6 support
-- ESLint
+- ESLint Airbnb syntax
 
 ### Images
 - Images optimization
 - Generation of multiple dimensions for srcset
-
-### TODO
-- [ ] Upgrate code accordingly to airbnb style guide

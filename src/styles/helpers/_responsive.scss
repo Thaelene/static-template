@@ -1,0 +1,38 @@
+// RESPONSIVE
+@mixin responsive($breakpoint) {
+  @if $breakpoint==$xl {
+      @media (min-width: $xl) {
+          @content ;
+      }
+  }
+  @else if $breakpoint==$lg {
+      @media (min-width: $lg) {
+          @content ;
+      }
+  }
+  @else if $breakpoint==$md {
+      @media (min-width: $md) {
+          @content ;
+      }
+  }
+  @else if $breakpoint==$sm {
+      @media (min-width: $sm) {
+          @content ;
+      }
+  }
+  @else if $breakpoint==$xs {
+      @media (min-width: $xs) {
+          @content ;
+      }
+  }
+  @else if $breakpoint==$xxs {
+      @media (min-width: $xxs) {
+          @content ;
+      }
+  }
+  @else if $breakpoint==$xxxs {
+      @media (min-width: $xxxs) {
+          @content ;
+      }
+  }
+}

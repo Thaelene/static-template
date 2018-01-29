@@ -1,2 +1,19 @@
-// Views
-@import 'views/index.scss';
+// Reset
+@import 'base/reset.scss';
+
+// Helpers
+@import 'helpers/fonts.scss';
+@import 'helpers/variables.scss';
+@import 'helpers/mixins.scss';
+@import 'helpers/responsive.scss';
+
+// Base 
+@import 'base/base.scss';
+
+// Components
+
+// Layouts
+@import 'layouts/header.scss';
+
+// Pages
+@import 'pages/index.scss';
