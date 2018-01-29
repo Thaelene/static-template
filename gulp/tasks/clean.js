@@ -1,13 +1,13 @@
 /* eslint-disable */
 import gulp from 'gulp'
-import del from 'del'
-/* eslint-enabled */
+import del  from 'del'
+/* eslint-enable */
 
 // Clean dist
 const cleanTask = () => {
-  return del(['dist'])
-}
+  return del(['dist']);
+};
 
-gulp.task('clean', cleanTask)
+gulp.task('clean', cleanTask);
 
-export default cleanTask
+export default cleanTask;

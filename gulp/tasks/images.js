@@ -1,10 +1,10 @@
 /* eslint-disable */
-import gulp          from 'gulp'
-import gutil         from 'gulp-util'
-import gulp_imagemin from 'gulp-imagemin'
+import gulp            from 'gulp'
+import gutil           from 'gulp-util'
+import gulp_imagemin   from 'gulp-imagemin'
 import gulp_responsive from 'gulp-responsive-images'
-import browserSync from 'browser-sync'
-import { images }    from '../config'
+import browserSync     from 'browser-sync'
+import { images }      from '../config'
 /* eslint-enable */
 
 const isProd = process.env.NODE_ENV === 'production';

@@ -1,5 +1,5 @@
-const APP_SRC = 'src/';
-const APP_DEST = 'dist/';
+const APP_SRC    = 'src/';
+const APP_DEST   = 'dist/';
 const APP_ASSETS = 'dist/assets/';
 
 module.exports = {

@@ -1,9 +1,9 @@
 /* eslint-disable */
-import gulp from 'gulp';
-import gulp_notify from 'gulp-notify';
+import gulp             from 'gulp';
+import gulp_notify      from 'gulp-notify';
 import gulp_fileinclude from 'gulp-file-include';
-import bs from 'browser-sync';
-import { views } from '../config';
+import browserSync      from 'browser-sync';
+import { views }        from '../config';
 /* eslint-enable */
 
 const viewsTask = (done) => {
@@ -17,7 +17,7 @@ const viewsTask = (done) => {
     )
     .pipe(gulp.dest(views.dest))
     .pipe(gulp_notify('HTML updated'))
-    .pipe(bs.stream());
+    .pipe(browserSync.stream());
   done();
 };
 

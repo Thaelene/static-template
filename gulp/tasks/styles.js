@@ -1,17 +1,17 @@
 /* eslint-disable */
-import gulp from 'gulp';
-import gutil from 'gulp-util';
-import gulp_sass from 'gulp-sass';
-import gulp_autoprefixer from 'gulp-autoprefixer';
-import gulp_csscomb from 'gulp-csscomb';
-import gulp_cssnano from 'gulp-cssnano';
-import gulp_sourcemaps from 'gulp-sourcemaps';
-import gulp_plumber from 'gulp-plumber';
-import gulp_notify from 'gulp-notify';
-import gulp_rename from 'gulp-rename';
-import browserSync from 'browser-sync';
-import { styles } from '../config';
-/* eslint-enabled */
+import gulp              from 'gulp'
+import gutil             from 'gulp-util'
+import gulp_sass         from 'gulp-sass'
+import gulp_autoprefixer from 'gulp-autoprefixer'
+import gulp_csscomb      from 'gulp-csscomb'
+import gulp_cssnano      from 'gulp-cssnano'
+import gulp_sourcemaps   from 'gulp-sourcemaps'
+import gulp_plumber      from 'gulp-plumber'
+import gulp_notify       from 'gulp-notify'
+import gulp_rename       from 'gulp-rename'
+import browserSync       from 'browser-sync'
+import { styles }        from '../config'
+/* eslint-enable */
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -19,8 +19,8 @@ const stylesTask = (done) => {
   gulp
     .src(styles.src)
     .pipe(gulp_plumber({
-        errorHandler: gulp_notify.onError('SCSS Error: <%= error.message %>')
-      }))
+      errorHandler: gulp_notify.onError('SCSS Error: <%= error.message %>')
+    }))
     .pipe(!isProd ? gulp_sourcemaps.init() : gutil.noop())
     .pipe(gulp_sass().on('error', gulp_sass.logError))
     .pipe(gulp_autoprefixer(styles.autoprefixerOpts))
@@ -32,7 +32,7 @@ const stylesTask = (done) => {
     .pipe(browserSync.stream())
     .pipe(gulp_notify('SCSS compiled: <%= file.relative %>'));
   done();
-}
+};
 
 gulp.task('styles', stylesTask);
 
