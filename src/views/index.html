@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Static template</title>
-  <link rel="stylesheet" href="assets/styles/main.min.css">
-</head>
-<body>
 
-  @@include('./layouts/header.html')
-  <div class="content">
-    <h1 class="content_title">Hello,</h1>
-    <p class="content_text">You're using a static template to initialize your project.</p>
-  </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Static template</title>
+    <link rel="stylesheet" href="assets/styles/main.min.css">
+  </head>
 
-  <script src="assets/javascript/main.min.js" charset="utf-8"></script>
-</body>
+  <body>
+
+    @@include('./layouts/header.html')
+    <div class="content">
+      <h1 class="content_title">Hello,</h1>
+      <p class="content_text">You're using a static template to initialize your project.</p>
+    </div>
+
+    <script src="./assets/javascript/main.min.js" charset="utf-8"></script>
+  </body>
+
 </html>
